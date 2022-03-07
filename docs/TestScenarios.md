@@ -28,6 +28,7 @@ This user is allowed to GET, UPDATE and ADD recipes, but not DELETE
     "name": "Traditional Pancakes",
     "vegetarian": false,
     "servings": 4,
+    "directions": ["1. Cook the meat for 1 hour"],
     "ingredients": [
         {
             "name": "Floour",
@@ -101,6 +102,7 @@ This user is allowed to GET, UPDATE and ADD recipes, but not DELETE
     "name": "NewRecipe",
     "vegetarian": true,
     "servings": 3,
+    "directions": ["1. Boil water"],
     "ingredients": [
         {
             "id": "20",
@@ -124,6 +126,7 @@ This user is allowed to GET, UPDATE and ADD recipes, but not DELETE
         "name": "NewRecipe",
         "vegetarian": true,
         "servings": 3,
+        "directions": ["1. Boil water"],
         "ingredients": [
             {
                 "name": "peper",
@@ -148,6 +151,7 @@ This user is allowed to GET, UPDATE and ADD recipes, but not DELETE
 {
     "name": "Cake",
     "servings": 4,
+    "directions": ["1. Boil water"],
     "ingredients": [
         {
             "name": "Butter"
