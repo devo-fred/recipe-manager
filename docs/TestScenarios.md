@@ -93,12 +93,12 @@ This user is allowed to GET, UPDATE and ADD recipes, but not DELETE
 ```json
 {
     "timestamp": "<current timestamp>",
-    "message": "Access is denied"
+    "message": "You are not aurorized for this request"
 }
 ```
 ### **Scenario 5**: Update a recipe by id using the web service  
 **Given:**  The user is using Postman and recipe with id 2 exist  
-**When:**  a PUT request is made to https://localhost:8443/api/recipe/2 with body  
+**When:**  a PUT request is made to https://localhost:8443/api/recipe with body  
 (content-type: application/json)  
 ```json
 {
@@ -109,7 +109,6 @@ This user is allowed to GET, UPDATE and ADD recipes, but not DELETE
     "directions": ["1. Boil water"],
     "ingredients": [
         {
-            "id": "20",
             "name": "peper",
             "amount": "30 gr"
         },
