@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 public class RecipeService {
@@ -19,12 +21,14 @@ public class RecipeService {
     @Autowired
     RecipeRepository recipeRepository;
 
+    @Transactional
     public Integer addRecipe(Recipe newRecipe) {
         logger.info("User: {} - Add new recipe", UserHelper.getCurrentUsername());
         Recipe recipe = recipeRepository.save(newRecipe);
         return recipe.getId();
     }
 
+    @Transactional
     public Recipe getRecipe(Integer id) {
         logger.info("User: {} - Get recipe with id {}", UserHelper.getCurrentUsername(),id);
         Optional<Recipe> recipe = recipeRepository.findById(id);
@@ -34,11 +38,13 @@ public class RecipeService {
         return recipe.get();
     }
 
+    @Transactional
     public List<Recipe> getRecipes() {
         logger.info("User: {} - Get all recipes", UserHelper.getCurrentUsername());
         return recipeRepository.findAll();
     }
 
+    @Transactional
     public Recipe updateRecipe(Recipe updatedRecipe) {
         logger.info("User: {} - Update recipe with id {}", UserHelper.getCurrentUsername(), updatedRecipe.getId());
         Optional<Recipe> recipe = recipeRepository.findById(updatedRecipe.getId());
@@ -47,7 +53,8 @@ public class RecipeService {
         }
         return recipeRepository.save(updatedRecipe);
     }
-
+    
+    @Transactional
     public boolean deleteRecipe(Integer id) {
         logger.info("User: {} - Delete recipe with id {}", UserHelper.getCurrentUsername(), id);
         if (recipeRepository.existsById(id)) {

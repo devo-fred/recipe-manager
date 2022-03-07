@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 public class AddRecipeDTO {
     @NotEmpty
     private String name;
+    @NotEmpty
+    private List<String> directions;
     @NotNull
     private Boolean vegetarian;
     @NotNull
@@ -80,6 +82,20 @@ public class AddRecipeDTO {
      */
     public void setIngredients(List<IngredientDTO> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    /**
+     * @return List<String> return the directions
+     */
+    public List<String> getDirections() {
+        return directions;
+    }
+
+    /**
+     * @param directions the directions to set
+     */
+    public void setDirections(List<String> directions) {
+        this.directions = directions;
     }
 
 }

@@ -8,13 +8,15 @@ INSERT INTO user_roles(user_id, role_id) VALUES(1,1);
 -- INSERT INTO user_roles(user_id, role_id) VALUES(1,2);
 
 -- Recipe 1
-INSERT INTO recipe(id, name,servings, vegetarian) VALUES(1,'Recipe1', 4 , 1);
+INSERT INTO recipe(id, name, servings, vegetarian) VALUES(1,'Recipe1', 4 , 1);
 INSERT INTO ingredient(id, name, amount) VALUES(10, 'salt', '10 gr');
 INSERT INTO ingredient(id, name, amount) VALUES(11, 'peper', '15 gr');
 INSERT INTO ingredient(id, name, amount) VALUES(12, 'flour', '120 gr');
 INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES(1,10);
 INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES(1,11);
 INSERT INTO recipe_ingredients(recipe_id, ingredients_id) VALUES(1,12);
+INSERT INTO recipe_directions(id, directions) VALUES(1, 'Step 1: In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.');
+INSERT INTO recipe_directions(id, directions) VALUES(1, 'Step 2: Heat a lightly oiled griddle or frying pan over medium-high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.');
 
 -- Recipe 2
 INSERT INTO recipe(id, name,servings, vegetarian) VALUES(2,'Recipe2', 3 , 0);

@@ -4,14 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -26,9 +19,13 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     @NotEmpty
     private String name;
+    @NotEmpty
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "recipe_directions", joinColumns = @JoinColumn(name = "id")) 
+    @Column(name = "directions")
+    private List<String> directions;
     @NotNull
     private Boolean vegetarian;
     @NotNull
@@ -36,7 +33,7 @@ public class Recipe {
     @Valid
     @NotEmpty
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+    private List<Ingredient> ingredients = new ArrayList<>();
 
     @CreatedDate
     private LocalDateTime createdAt;
@@ -140,6 +137,20 @@ public class Recipe {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return List<String> return the directions
+     */
+    public List<String> getDirections() {
+        return directions;
+    }
+
+    /**
+     * @param directions the directions to set
+     */
+    public void setDirections(List<String> directions) {
+        this.directions = directions;
     }
 
 }

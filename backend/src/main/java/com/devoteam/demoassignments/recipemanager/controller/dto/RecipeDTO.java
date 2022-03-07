@@ -12,6 +12,8 @@ public class RecipeDTO {
     private Integer id;
     @NotEmpty
     private String name;
+    @NotEmpty
+    private List<String> directions;
     @NotNull
     private Boolean vegetarian;
     @NotNull
@@ -25,12 +27,13 @@ public class RecipeDTO {
     public RecipeDTO() {
     }
 
-    public RecipeDTO(Integer id, String name, Boolean vegetarian, Integer servings, List<IngredientDTO> ingredients) {
+    public RecipeDTO(Integer id, String name, Boolean vegetarian, Integer servings, List<IngredientDTO> ingredients, List<String> directions) {
         this.id = id;
         this.name = name;
         this.vegetarian = vegetarian;
         this.servings = servings;
         this.ingredients = ingredients;
+        this.directions = directions;
     }
 
     /**
@@ -130,4 +133,19 @@ public class RecipeDTO {
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * @return List<String> return the directions
+     */
+    public List<String> getDirections() {
+        return directions;
+    }
+
+    /**
+     * @param directions the directions to set
+     */
+    public void setDirections(List<String> directions) {
+        this.directions = directions;
+    }
+
 }

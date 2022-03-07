@@ -85,7 +85,6 @@ public class AuthenticationController {
   @PostMapping("/register")
   public ResponseEntity<ResponseDTO> registerUser(@Valid @RequestBody AddUserDTO addUserDTO) {
     logger.info("Register new user: {}", addUserDTO.getUsername());
-    
 
     if (Boolean.TRUE.equals(userRepository.existsByUsername(addUserDTO.getUsername()))) {
       return ResponseEntity.badRequest().body(new ResponseDTO("Username already taken!"));

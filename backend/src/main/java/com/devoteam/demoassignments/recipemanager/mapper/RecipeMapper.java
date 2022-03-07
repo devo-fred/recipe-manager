@@ -14,7 +14,7 @@ public class RecipeMapper {
     private ModelMapper modelMapper = new ModelMapper();
     
     public List<RecipeDTO> convertToDto(List<Recipe> recipes) {
-        return recipes.stream().map(recipe -> convertToDto(recipe)).collect(Collectors.toList());
+        return recipes.stream().map(this::convertToDto).collect(Collectors.toList());
     }
     
     public RecipeDTO convertToDto(Recipe recipe) {
@@ -22,8 +22,7 @@ public class RecipeMapper {
     }
     
     public <T> Recipe convertToEntity(T recipeDTO) {
-        Recipe recipe = modelMapper.map(recipeDTO, Recipe.class);
-        return recipe;
+        return modelMapper.map(recipeDTO, Recipe.class);
     }
 
 }

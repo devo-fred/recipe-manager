@@ -66,8 +66,11 @@ public class RecipeControllerTest {
         INGREDIENT_DTO_3 = new IngredientDTO("Peper", "8 gr");
         INGREDIENTS_DTO_1 = new ArrayList<IngredientDTO>(Arrays.asList(INGREDIENT_DTO_1, INGREDIENT_DTO_2));
         INGREDIENTS_DTO_2 = new ArrayList<IngredientDTO>(Arrays.asList(INGREDIENT_DTO_1, INGREDIENT_DTO_3));
-        RECIPE_DTO_1 = new RecipeDTO(1, "Bread", false, 4, INGREDIENTS_DTO_1);
-        RECIPE_DTO_2 = new RecipeDTO(1, "BreadHot", false, 4, INGREDIENTS_DTO_2);
+        List<String> directions = new ArrayList<>();
+        directions.add("1. Cook the meat for 1 hour");
+        directions.add("2. Add salt and pepper");
+        RECIPE_DTO_1 = new RecipeDTO(1, "Bread", false, 4, INGREDIENTS_DTO_1, directions);
+        RECIPE_DTO_2 = new RecipeDTO(1, "BreadHot", false, 4, INGREDIENTS_DTO_2,directions );
         RECIPES_DTO_1 = Arrays.asList(RECIPE_DTO_1, RECIPE_DTO_2);
 
         RECIPE_1 = new ModelMapper().map(RECIPE_DTO_1, Recipe.class);
