@@ -47,15 +47,19 @@ This user is allowed to GET, UPDATE and ADD recipes, but not DELETE
 ```
 ### **Scenario 2**: Get a recipe by id using the web service  
 **Given:**  The user is using Postman and recipe with id 2 exist  
-**When:**  a GET request is made to https://localhost:8443/api/recipe/2  
+**When:**  a GET request is made to https://localhost:8443/api/recipe/1  
 **Then:** the response body will contain:   
 ```json
 {
-    "timestamp": "<current timestamp>",
+    "timestamp": "current timestamp>",
     "message": "Get recipe successfully",
     "payload": {
         "id": 1,
         "name": "Recipe1",
+        "directions": [
+            "Step 1: In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.",
+            "Step 2: Heat a lightly oiled griddle or frying pan over medium-high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot."
+        ],
         "vegetarian": true,
         "servings": 4,
         "ingredients": [
