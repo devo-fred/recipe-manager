@@ -1,0 +1,32 @@
+version: '3'
+services:
+  rm-backend:
+    build: ./backend
+    container_name: rm-backend
+    environment:
+      - MYSQL_HOST=rm-mariadb
+      - MYSQL_DATABASE=recipe_manager
+      - MYSQL_USER=recipe_manager
+      - MYSQL_PASSWORD=Zxasqw!@
+      - JWT_SECRET=Jdvb32sOkgmd98$$
+      - JWT_EXPIRATION=86400000
+    ports:
+      - 8443:8443
+    links:
+      - rm-mariadb
+  rm-mariadb:
+    image: mariadb
+    restart: unless-stopped
+    volumes:
+      - rm-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_HOST: rm-mariadb
+      MYSQL_DATABASE: recipe_manager
+      MYSQL_USER: recipe_manager
+      MYSQL_PASSWORD: Zxasqw!@
+      MYSQL_ROOT_PASSWORD: Zxcdsa!@
+
+volumes:
+  rm-data:
