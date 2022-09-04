@@ -1,5 +1,13 @@
 version: '3'
 services:
+  db:
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: recipe_manager
+      MYSQL_PASSWORD: Zxasqw!@
+      MYSQL_DATABASE: recipe_manager
+      MYSQL_ROOT_PASSWORD: Zxcdsa!@
   app:
     build: 
       context: .
@@ -11,11 +19,3 @@ services:
       - ..:/workspace:cached      
     command: sleep infinity
     network_mode: service:db
-  db:
-    image: mariadb
-    restart: unless-stopped
-    environment:
-      MYSQL_USER: recipe_manager
-      MYSQL_PASSWORD: Zxasqw!@
-      MYSQL_DATABASE: recipe_manager
-      MYSQL_ROOT_PASSWORD: Zxcdsa!@
